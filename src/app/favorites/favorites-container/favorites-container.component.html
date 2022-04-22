@@ -1,0 +1,10 @@
+<section class="fav-container">
+    <mat-icon (click)="navHome()" matBadgeColor="warn">home</mat-icon>
+    <ng-container *ngFor="let pokemon of pokemons">
+
+        <app-pokemon-card (detailsEmitter)="detailsHandler($event)" (removeFavEmitter)="removeFavHandler($event)"
+            [pokemon]="pokemon">
+        </app-pokemon-card>
+
+    </ng-container>
+</section>

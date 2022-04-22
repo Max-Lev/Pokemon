@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.fav-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 1rem;
+
+    app-pokemon-card {
+        mat-card.mat-card.pokemon-card {
+            flex: 1;
+            place-content: center;
+            max-width: none;
+            flex-direction: row;
+            justify-content: space-between;
+
+            mat-card-header,
+            mat-card-actions {
+                display: flex;
+                flex: 1;
+                flex-direction: column;
+            }
+        }
+
+    }
+
+    mat-icon {
+        margin: 0.5rem
+    }
+}
+
+.moves-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .title {
+        display: flex;
+        flex: 1;
+        flex-basis: 100%;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+    .move {
+        display: flex;
+    }
+}

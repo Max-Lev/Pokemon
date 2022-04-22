@@ -1,0 +1,55 @@
+<section class="fav-container">
+    <mat-icon (click)="navHome()" matBadgeColor="warn">home</mat-icon>
+
+    <app-pokemon-card [pokemon]="pokemon" [displayDetailsBtn]="false" (addFavEmitter)="addFavHandler($event)"
+        (removeFavEmitter)="removeFavHandler($event)">
+
+        <!-- TYPES -->
+        <div class="moves-container" moves>
+            <h4 class="title">Types:</h4>
+            <div class="move" *ngFor="let moves of pokemon.types;let isLast=last">
+                {{moves.type.name| uppercase}} {{isLast ? '' : ', '}}
+            </div>
+        </div>
+
+        <!-- MOVES -->
+        <div class="moves-container" moves>
+            <h4 class="title">Moves:</h4>
+            <div class="move" *ngFor="let moves of pokemon.moves;let isLast=last">
+                {{moves.move.name | uppercase}} {{isLast ? '' : ', '}}
+            </div>
+        </div>
+
+        <!-- ENCOUNTERS -->
+        <div class="moves-container" encounters *ngIf="pokemon.encounters?.length;else na">
+            <h4 class="title">Encounters:</h4>
+            <div class="move" *ngFor="let ecounter of pokemon.encounters;let isLast=last">
+                {{ecounter.location_area.name| uppercase}} {{isLast ? '' : ', '}}
+            </div>
+        </div>
+        <ng-template #na>
+            <div class="moves-container">
+                <h4 class="title">Encounters:</h4>
+                <div>N/A</div>
+            </div>
+        </ng-template>
+
+        <!-- GAMES -->
+        <div class="moves-container" games>
+            <h4 class="title">Games:</h4>
+            <div class="move" *ngFor="let game of pokemon.game_indices;let isLast=last">
+                {{game.version.name| uppercase}} {{isLast ? '' : ', '}}
+            </div>
+        </div>
+
+        <!-- GENERATIONS -->
+        <div class="moves-container" versions>
+            <h4 class="title">Versions:</h4>
+            <div class="move" *ngFor="let version of [pokemon.version];let isLast=last">
+                {{version.name| uppercase}} {{isLast ? '' : ', '}}
+            </div>
+        </div>
+
+    </app-pokemon-card>
+
+</section>

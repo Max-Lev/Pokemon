@@ -1,0 +1,10 @@
+<app-favorites-indicator (navFavEmitter)="navFavHandler($event)" [counter]="counter"></app-favorites-indicator>
+
+<section class="cards-container">
+    <ng-container *ngFor="let pokemon of pokemonsList$ | async">
+        <app-pokemon-card 
+        (detailsEmitter)="detailsHandler($event)"
+        (addFavEmitter)="addFavHandler($event)" (removeFavEmitter)="removeFavHandler($event)"
+            [pokemon]="pokemon"></app-pokemon-card>
+    </ng-container>
+</section>

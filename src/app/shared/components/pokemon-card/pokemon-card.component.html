@@ -1,0 +1,29 @@
+<mat-card class="pokemon-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Name: {{pokemon.name | uppercase}}</mat-card-title>
+        <mat-card-subtitle>ID: {{pokemon.id}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="pokemon.sprites.front_default" alt="Photo">
+    <mat-card-content>
+
+        <ng-content select="[types]"></ng-content>
+        <ng-content select="[moves]"></ng-content>
+        <ng-content select="[encounters]"></ng-content>
+        <ng-content select="[games]"></ng-content>
+        <ng-content select="[versions]"></ng-content>
+
+    </mat-card-content>
+    <mat-card-actions>
+
+        <button *ngIf="displayDetailsBtn" id="details" (click)="details(pokemon)" mat-button>Details</button>
+
+        <ng-container *ngIf="pokemon.isFavorite;else lock">
+            <button mat-button (click)="removeFavorites(pokemon)">Remove from Favorites</button>
+        </ng-container>
+        <ng-template #lock>
+            <button mat-button [disabled]="pokemon.disableAll" (click)="addFavorites(pokemon)">Add to Favorites</button>
+        </ng-template>
+
+    </mat-card-actions>
+</mat-card>

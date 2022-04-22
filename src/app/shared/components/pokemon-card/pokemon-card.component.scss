@@ -1,0 +1,22 @@
+:host {
+    display: flex;
+    flex-direction: row;
+
+    .pokemon-card {
+        max-width: 300px;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        margin: 0.5rem;
+        border: 1px solid gray;
+
+        img {
+            min-width: 96px;
+            min-height: 96px;
+            width: auto;
+            height: auto;
+            align-self: center;
+        }
+    }
+
+}
