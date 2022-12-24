@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path:'preferences',loadChildren:()=>import('./preferences/preferences.module')
+  },
+  {
     path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(module => module.DashboardModule),
   },
   {
@@ -11,7 +14,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,
+    {
+      initialNavigation:'enabled'
+    })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
